@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор Строителя</title>
+</head>
+<body>
+
+<div id="builderContainer">
+    <img src="" alt="строитель" id="builderImage" style="max-width: 300px; display: none;" />
+    <button id="generateBuilderBtn">Сгенерировать строителя</button>
+    <button onclick="window.location='https://warpcast.com/harios';" style="display: none;" id="subscribeBtn">Подписаться</button>
+    <button onclick="shareBuilder();" style="display: none;" id="shareBtn">Поделиться</button>
+</div>
+
+<script>
+    const builders = [
+        'path/to/your/first_builder_image.jpg',
+        'path/to/your/second_builder_image.jpg',
+        'path/to/your/third_builder_image.jpg',
+        'path/to/your/fourth_builder_image.jpg',
+        'path/to/your/fifth_builder_image.jpg',
+    ];
+
+    document.getElementById('generateBuilderBtn').addEventListener('click', function() {
+        const randomIndex = Math.floor(Math.random() * builders.length);
+        const selectedBuilder = builders[randomIndex];
+        const builderImageEl = document.getElementById('builderImage');
+        builderImageEl.src = selectedBuilder;
+        builderImageEl.style.display = 'block';
+
+        // Показываем кнопки "Подписаться" и "Поделиться" после генерации изображения
+        document.getElementById('subscribeBtn').style.display = 'inline-block';
+        document.getElementById('shareBtn').style.display = 'inline-block';
+    });
+
+    function shareBuilder() {
+        // Это место для интеграции с API или возможностью платформы "поделиться"
+        // Пока здесь будет простое сообщение
+        alert('Здесь должна быть логика репоста или деления изображения');
+    }
+</script>
+
+</body>
+</html>
